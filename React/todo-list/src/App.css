@@ -1,12 +1,29 @@
 /*App.css*/
+.del{
+  background-color: white;
+  color:lawngreen;
+  border-radius: 2px;
+  padding: 2px;
+  margin-left: 2px;
+  font-size: 10px;
+}
 
+.board{
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  color: #282c34;
+  text-align: left;
+  font-size: 20px;
+}
 .container{
   margin: auto;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 20vh;
   padding: auto;
-  background-color: #282c34;
+  background-color:coral;
   text-align: center;
 }
 
