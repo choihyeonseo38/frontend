@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import { Button } from 'react-bootstrap';
+import TodoModal from './TodoModal';
 
 type Todo = {
   id: number;
@@ -80,7 +81,7 @@ const TodoList: React.FC = () => {
                   checked={todo.isChecked}
                   onChange={() => handleCheckedChange(todo.id)}
                 />
-                <span onChange={() => handleTodoClick(todo)}>
+                <span onClick={() => handleTodoClick(todo)}>
                   {todo.isChecked
                     ? <del>{todo.text}</del>
                     : <span>{todo.text}</span>}
@@ -95,6 +96,7 @@ const TodoList: React.FC = () => {
           </ul>
         </div>
       </div>
+      <TodoModal show={showDetail} todo={selectedTodo} handleClose={handleClose}></TodoModal>
     </div>
   );
 };
