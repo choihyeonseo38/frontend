@@ -1,0 +1,75 @@
+/*App.css*/
+.del{
+  background-color: white;
+  color:lawngreen;
+  border-radius: 2px;
+  padding: 2px;
+  margin-left: 2px;
+  font-size: 10px;
+}
+
+.board{
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  color: #282c34;
+  text-align: left;
+  font-size: 20px;
+}
+.container{
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  height: 25vh;
+  padding: auto;
+  background-color:coral;
+  text-align: center;
+}
+
+.test {
+  background-color: aqua;
+  font-size: 20px;
+  color :coral;
+  padding: auto;
+}
+
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
