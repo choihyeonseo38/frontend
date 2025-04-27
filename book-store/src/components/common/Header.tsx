@@ -1,41 +1,31 @@
-// Header.tsx
-import styled from "styled-components";
+import { styled } from "styled-components";
 import ThemeSwicher from "../header/ThemeSwicher"; 
 import logo from "../../assets/images/logo.png";
-import {FaSignInAlt, FaRegUser } from "react-icons/fa";
+import { FaSignInAlt, FaRegUser } from "react-icons/fa";
+import { Link } from "react-router-dom";  
+import { useEffect, useState } from "react";
+import { Category } from "../../models/category.model";
+import { fetchCategory } from "../../api/category.api";
+import { useCategory } from "../../hooks/useCategory";
 
-const CATEGORY = [
-  {
-    id: null,
-    name: "전체"
-  },
-  {
-    id: 0,
-    name: "동화"  
-  },
-  {
-    id: 1,
-    name: "소설"  
-  },
-  {
-    id: 2,
-    name: "사회"
-  },
-];
+// CATEGORY는 이제 fetchCategory로 받아올 것이라 주석 처리
 
 function Header() {
+  const { category } = useCategory();
+
   return (
     <HeaderStyle>
       <h1 className="logo">
-        <img src={logo} alt="book store" />
+        <Link to="/"><img src={logo} alt="book store" /></Link>
       </h1>
       <nav className="category">
         <ul>
           {
-            CATEGORY.map((item) => (
+            category.map((item) => (  // CATEGORY를 category로 수정
               <li key={item.id}>
-                <a href={item.id===null?'/books' : `/books?category_id=${item.id}`}>
-                {item.name}</a>
+                <Link to={item.id === null ? '/books' : `/books?category_id=${item.id}`}>
+                  {item.name}
+                </Link>
               </li>
             ))
           }
@@ -44,16 +34,16 @@ function Header() {
       <nav className="auth">
         <ul>
           <li>
-            <a href="/login">
-            <FaSignInAlt/>
-            로그인
-            </a>
-          </li> 
+            <Link to="/login">
+              <FaSignInAlt />
+              로그인
+            </Link>
+          </li>
           <li>
-            <a href="/login">
-            <FaRegUser/>
-            회원가입
-            </a>
+            <Link to="/signup">
+              <FaRegUser />
+              회원가입
+            </Link>
           </li>
         </ul>
       </nav>
@@ -69,14 +59,15 @@ const HeaderStyle = styled.header`
   display: flex;
   justify-content: space-between; 
   align-items: center;
-  padding:20px 0;
-  border-bottom: 1px solid ${({theme}) => theme.color.background}; 
+  padding: 20px 0;
+  border-bottom: 1px solid ${({ theme }) => theme.color.background}; 
 
   .logo {
     img {
       width: 200px;
     }
   }
+
   .category {
     ul {
       display: flex;
@@ -86,15 +77,16 @@ const HeaderStyle = styled.header`
           font-size: 1.5rem;
           font-weight: 600;
           text-decoration: none;
-          color: ${({theme}) => theme.color.text}; 
+          color: ${({ theme }) => theme.color.text}; 
 
           &:hover {
-            color: ${({theme}) => theme.color.primary}; 
+            color: ${({ theme }) => theme.color.primary}; 
           }
         }
       }
     }
   }
+
   .auth {
     ul {
       display: flex;
@@ -104,12 +96,12 @@ const HeaderStyle = styled.header`
           font-size: 1.5rem;
           font-weight: 600;
           text-decoration: none;
-          display:flex;
-          align-item: center;
-          line-height:1;
+          display: flex;
+          align-items: center;
+          line-height: 1;
 
-          svg{
-          margin-right:6px;
+          svg {
+            margin-right: 6px;
           }
         }
       }

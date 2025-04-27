@@ -7,7 +7,7 @@ export type ButtonSize = "large" | "medium" | "small";
 export type ButtonScheme = "primary" | "normal";
 export type LayoutWidth = "large" | "medium" | "small";
 
-interface Theme {
+export interface Theme {
   name: ThemeName;
   color: Record<ColorKey, string>;
   heading: {
